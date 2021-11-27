@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  background: rgba(50, 50, 93, 0.1);
+  font-size: 24px;
+  height: 100vh;
+  font-weight: 500;
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  flex-direction: column;
+  padding: 2em;
+  border-radius: 10px;
+  background: white;
+  max-width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  border: 5px solid rgba(50, 50, 93, 0.1);
+  position: relative;
+}
+
+#battery {
+  height: 4em;
+  width: 250px;
+  background: white;
+  border-radius: 4px;
+  position: relative;
+  border: 5px solid black;
+  display: flex;
+  padding: 5px;
+  gap: 5px;
+}
+
+#battery::after {
+  position: absolute;
+  content: "";
+  height: 70px;
+  width: 14px;
+  background: black;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  right: -19px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.battery__lvl {
+  flex: 0 1 calc(210px / 5);
+  background: #f44041;
+  width: 10%;
+}
+
+input {
+  margin: 1em;
+  width: 3em;
+  padding: 0.4em;
+  border: 0;
+  background: rgba(50, 50, 93, 0.05);
+  font: inherit;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+.battery--loaded {
+  animation: shake 0.5s;
+  animation-iteration-count: 1;
+}
+
+.error-el {
+  position: absolute;
+  padding: 10px;
+  top: -60px;
+  font-size: 1.3rem;
+  color: #a94442;
+  background: #f2dede;
+  border: 1px solid #ebccd1;
+  border-radius: 4px;
+}
+
+.error-el-inactive {
+  display: none;
+}
